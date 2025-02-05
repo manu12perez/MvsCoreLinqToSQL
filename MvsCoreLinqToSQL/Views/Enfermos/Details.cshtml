@@ -1,0 +1,32 @@
+﻿@model Enfermo
+
+<h1>Details</h1>
+
+<p>
+	<a asp-controller="Enfermos"
+	   asp-action="Index"
+	   class="btn btn-outline-dark">
+		Back to list
+	</a>
+</p>
+
+<ul class="list-group">
+	<li class="list-group-item">
+		<strong>Inscripción:</strong> @Model.Inscripcion
+	</li>
+	<li class="list-group-item">
+		<strong>Apellido:</strong> @Model.Apellido
+	</li>
+	<li class="list-group-item">
+		<strong>Dirección:</strong> @Model.Direccion
+	</li>
+	<li class="list-group-item">
+		<strong>Fecha de nacimiento:</strong> @Model.FechaNacimiento
+	</li>
+	<li class="list-group-item">
+		<strong>Sexo:</strong> @Model.Sexo
+	</li>
+	<li class="list-group-item">
+		<strong>Número Seguridad Social:</strong> @Model.NumSegSoc
+	</li>
+</ul>
