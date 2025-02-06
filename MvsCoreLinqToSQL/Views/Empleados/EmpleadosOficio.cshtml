@@ -1,0 +1,55 @@
+﻿@model ResumenEmpleado
+
+@{
+	List<string> oficios = ViewData["OFICIOS"] as List<string>;
+}
+
+<h1>Lambda expression Linq</h1>
+
+<form method="post">
+	<label>Oficio:</label>
+	@* <input type="text" name="oficio" class="form-control" /> *@
+	<select name="oficio" class="form-control">
+		@foreach (string oficio in oficios){
+			<option value="@oficio">@oficio</option>
+		}
+	</select>
+	<br />
+	<button class="btn btn-info">
+		Buscar empleados
+	</button>
+</form>
+
+@if (Model != null){
+	<hr />
+	<ul class="list-group">
+		<li class="list-group-item">
+			Personas: @Model.Personas
+		</li>
+		<li class="list-group-item">
+			Máximo salario: @Model.MaximoSalario
+		</li>
+		<li class="list-group-item">
+			Media salarial: @Model.MediaSalarial
+		</li>
+	</ul>
+	<br />
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Apellido</th>
+				<th>Oficio</th>
+				<th>Salario</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Empleado empleado in Model.Empleados){
+				<tr>
+					<td>@empleado.Apellido</td>
+					<td>@empleado.Oficio</td>
+					<td>@empleado.Salario</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
